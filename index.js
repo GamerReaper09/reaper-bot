@@ -64,6 +64,55 @@ app.command("/reaper-bot-daysuntilchristmas",async ({ack,respond}) => {
     respond({ text:`It is ${christmasdifference} days left untill 24th December`})
 });
 
+app.command("/reaper-bot-calc",async ({command, ack, respond}) => {
+    await ack();
+    var commands = command.text.split(" ")
+    if (commands.length == 3) {
+        try {
+            num1 = Number(commands[0])
+            num2 = Number(commands[2])
+            if (!Number.isNaN(num1) && !Number.isNaN(num2)) {
+                switch(commands[1]) {
+                    case "+":
+                        console.log(commands[1])
+                        result = num1 + num2
+                        respond({text:`${command.text} = ${result}`})
+                        break;
+                    case "-":
+                        result = num1 - num2
+                        respond({text:`${command.text} = ${result}`})
+                        break;
+                    case "*":
+                        result = num1 * num2
+                        respond({text:`${command.text} = ${result}`})
+                        break;
+                    case "/":
+                        if (num2 == 0) {
+                            respond({text:"You can't divide by zero!"})
+                            break;
+                        }
+                        result = num1 / num2
+                        respond({text:`${command.text} = ${result}`})
+                        break;
+                    default:
+                        respond({text:"No valid operator found. Accepted operators: +, -, *, /"})
+                }
+                
+
+            }
+            else {
+                respond({text:"Both nums must be actual numbers!"})
+            }
+        } catch (err) {
+            respond({text:"Error: Expressions failed."})
+        }
+        
+    }
+    else {
+        respond({text: "Incorrect argument amount. Correct expression is num1 operator num2"})
+    }
+});
+
 
 (async () => {
   await app.start();
