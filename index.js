@@ -107,7 +107,7 @@ app.command("/reaper-bot-help",async ({ack,respond}) => {
         /reaper-bot-daysuntilchristmas - Shows how many days until Christmas.
         /reaper-bot-calc - A simple calculator.`
     });
-})
+});
 
 
 (async () => {
