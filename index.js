@@ -61,8 +61,9 @@ app.command("/reaper-bot-calc",async ({command, ack, respond}) => {
     var commands = command.text.split(" ")
     if (commands.length == 3) {
         try {
-            num1 = Number(commands[0])
-            num2 = Number(commands[2])
+            let num1 = Number(commands[0]);
+            let num2 = Number(commands[2]);
+            let result;
             if (!Number.isNaN(num1) && !Number.isNaN(num2)) {
                 switch(commands[1]) {
                     case "+":
@@ -99,6 +100,7 @@ app.command("/reaper-bot-help",async ({ack,respond}) => {
     await ack();
     await respond({
         text:`Available commands:
+        /reaper-bot-ping - Pings the bot and shows latency.
         /reaper-bot-catfact - Shows a fact about cats.
         /reaper-bot-joke - Tells a random joke.
         /reaper-bot-dog - Shows a picture of a random dog.
