@@ -13,6 +13,7 @@ You can try the bot in the official Hack Club slack [here](https://hackclub.ente
 | /reaper-bot-dog                | Shows a picture of a random dog          |
 | /reaper-bot-daysuntilchristmas | Shows the amount of days until christmas |
 | /reaper-bot-calc               | A simple text calculator                 |
+
 **Important!** The expression for the calculator is num1 operator num2 (THE SPACES MATTER!) Ex. for working expression: 4 + 3
 ## Credits
 | Credit            | Link                                                                             |
